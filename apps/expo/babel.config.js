@@ -18,7 +18,7 @@ module.exports = function (api) {
         },
       ],
       // if you want reanimated support
-      // 'react-native-reanimated/plugin',
+      'react-native-reanimated/plugin',
       ...(process.env.EAS_BUILD_PLATFORM === 'android'
         ? []
         : [

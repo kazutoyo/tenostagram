@@ -11,9 +11,6 @@ export default function HomeLayout() {
   })
   const scheme = useColorScheme()
 
-  if (!loaded) {
-    return null
-  }
   return (
     <Provider>
       <ThemeProvider value={scheme === 'dark' ? DarkTheme : DefaultTheme}>

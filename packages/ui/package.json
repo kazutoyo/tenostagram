@@ -25,6 +25,7 @@
     "@tamagui/toast": "latest",
     "@tenostagram/types": "*",
     "@tenostagram/ui": "*",
+    "react-native-reanimated": "^3.1.0",
     "tamagui": "latest"
   },
   "devDependencies": {

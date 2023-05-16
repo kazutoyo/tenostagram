@@ -1,7 +1,9 @@
 import { User } from '@tenostagram/types'
 
-export const createUser = (userId: string, name: string): User => ({
-  id: userId,
-  name: name,
-  thumbnailUrl: `https://picsum.photos/id/${userId}/200`,
-})
+export const users: { [userId: string]: User } = {
+  ['1']: {
+    id: '1',
+    name: 'テノちゃん',
+    thumbnailUrl: `https://picsum.photos/id/870/200`,
+  },
+}

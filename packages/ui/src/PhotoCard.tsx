@@ -1,15 +1,17 @@
-import { Card, Avatar, XStack, YStack, Text, GetProps, Image, useMedia } from 'tamagui'
-import { PhotoItem, User } from '@tenostagram/types'
+import { Card, Avatar, XStack, YStack, Text, GetProps, Stack } from 'tamagui'
+import { PhotoItem } from '@tenostagram/types'
 import { Pressable, Dimensions } from 'react-native'
 import { useLink } from 'solito/link'
+import Animated from 'react-native-reanimated'
 
 type CardProps = GetProps<typeof Card>
 
 type Props = {
   photoItem: PhotoItem
+  enableSharedTransition?: boolean
 } & CardProps
 
-export const PhotoCard = ({ photoItem, ...cardProps }: Props) => {
+export const PhotoCard = ({ photoItem, enableSharedTransition, ...cardProps }: Props) => {
   const screenWidth = Dimensions.get('window').width
   const linkProps = useLink({
     href: `/user/${photoItem.user.id}`,
@@ -29,16 +31,24 @@ export const PhotoCard = ({ photoItem, ...cardProps }: Props) => {
               </Text>
             </XStack>
           </Pressable>
-          <Image
+          <Stack
             $xs={{
               w: screenWidth,
               h: Math.floor((screenWidth / photoItem.image.width) * photoItem.image.height),
             }}
-            $gtSm={{
-              w: '100%',
-            }}
-            source={photoItem.image}
-          />
+          >
+            <Animated.Image
+              sharedTransitionTag={
+                enableSharedTransition === true ? `photo-shared-${photoItem.id}` : undefined
+              }
+              source={photoItem.image}
+              style={{
+                width: '100%',
+                height: '100%',
+                aspectRatio: photoItem.image.width / photoItem.image.height,
+              }}
+            />
+          </Stack>
         </YStack>
       </Card.Header>
 

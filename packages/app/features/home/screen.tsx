@@ -4,7 +4,7 @@ import { useLink } from 'solito/link'
 import { PhotoCard } from '@tenostagram/ui'
 import { FlatList } from 'react-native'
 import { PhotoItem } from '@tenostagram/types'
-import { createPhotoItem, createUser } from 'app/data'
+import { createPhotoItem, users } from 'app/data'
 
 export function HomeScreen() {
   return (
@@ -18,12 +18,13 @@ export function HomeScreen() {
       <YStack
         f={1}
         $gtXs={{
-          maxWidth: 800,
+          width: '100%',
+          maxWidth: 660,
         }}
       >
         <FlatList
           data={[...new Array(18)].map(
-            (_, index): PhotoItem => createPhotoItem(createUser('870', 'teno'), `photo-${index}`)
+            (_, index): PhotoItem => createPhotoItem(users['1']!, `photo-${index}`)
           )}
           renderItem={({ item }) => <PhotoCard f={1} photoItem={item} mb="$4" />}
           keyExtractor={(item, index) => `${item.user.name}-${index}`}
