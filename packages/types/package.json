@@ -1,0 +1,15 @@
+{
+  "name": "@tenostagram/types",
+  "version": "0.0.1",
+  "private": true,
+  "types": "./types/index",
+  "main": "src/index.tsx",
+  "module:jsx": "src",
+  "files": [
+    "types",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc"
+  }
+}

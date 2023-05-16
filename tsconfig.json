@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "strictNullChecks": true,
+    "noUncheckedIndexedAccess": true,
+    "paths": {
+      "app/*": ["./packages/app/*"],
+      "@tenostagram/ui/*": ["./packages/ui/*"],
+      "@tenostagram/types/*": ["./packages/types/*"]
+    }
+  },
+  "extends": "expo/tsconfig.base"
+}

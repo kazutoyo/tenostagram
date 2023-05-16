@@ -1,0 +1,11 @@
+{
+  "pipeline": {
+    "globalEnv": ["DISABLE_EXTRACTION", "NODE_ENV", "EAS_BUILD_PLATFORM"],
+    "build": {
+      "extends": "",
+      "env": ["DISABLE_EXTRACTION", "NODE_ENV", "EAS_BUILD_PLATFORM"],
+      "dependsOn": ["^build"],
+      "outputs": [".next/**"]
+    }
+  }
+}
